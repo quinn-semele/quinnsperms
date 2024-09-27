@@ -1,0 +1,1 @@
+- Initial release, adds `quinnsperms:allow_seasons_snow_accumulation` which when disabled disallows Serene Seasons' snow accumulation and ice formation.

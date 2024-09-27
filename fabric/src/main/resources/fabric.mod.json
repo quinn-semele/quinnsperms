@@ -1,0 +1,36 @@
+{
+    "schemaVersion": 1,
+    "id": "${mod_id}",
+    "version": "${version}",
+    "name": "${mod_name}",
+    "description": "${description}",
+    "authors": [
+        "${fl_authors}"
+    ],
+    "contact": {
+        "homepage": "${homepage}",
+        "issues": "${issue_tracker}",
+        "sources": "${sources_url}"
+    },
+    "license": "${license}",
+    "icon": "${mod_id}.png",
+    "environment": "*",
+    "entrypoints": {
+        "main": [
+            "dev.compasses.quinnsperms.thread.Main"
+        ]
+    },
+    "mixins": [
+        "${mod_id}.mixins.json"
+    ],
+    "depends": {
+        "fabricloader": ">=${fabric_loader_version}",
+        "fabric-api": ">=${fabric_api_version}",
+        "minecraft": "${fl_minecraft_constraint}",
+        "java": ">=${java_version}",
+
+        "sereneseasons": ">=10.0.0 <11.0.0",
+        "ftbteams": ">=2100.0.0 <2200.0.0",
+        "ftbchunks": ">=2100.0.0 <2200.0.0"
+    }
+}
