@@ -2,6 +2,7 @@ package dev.compasses.quinnsperms;
 
 import dev.ftb.mods.ftbchunks.api.ClaimedChunk;
 import dev.ftb.mods.ftbchunks.api.FTBChunksAPI;
+import dev.ftb.mods.ftbchunks.api.event.ClaimedChunkEvent;
 import dev.ftb.mods.ftblibrary.math.ChunkDimPos;
 import dev.ftb.mods.ftbteams.api.event.TeamEvent;
 import dev.ftb.mods.ftbteams.api.event.TeamManagerEvent;
@@ -38,6 +39,22 @@ public class CommonMain {
         TeamManagerEvent.DESTROYED.register(event -> {
             CLAIMED_CHUNKS = null;
             UNCLAIMED_CHUNKS = null;
+        });
+
+        ClaimedChunkEvent.AFTER_CLAIM.register((source, chunk) -> {
+            var unclaimedChunks = UNCLAIMED_CHUNKS.get(chunk.getPos().dimension());
+
+            if (unclaimedChunks != null) {
+                unclaimedChunks.remove(chunk.getPos().chunkPos().toLong());
+            }
+        });
+
+        ClaimedChunkEvent.AFTER_UNCLAIM.register((source, chunk) -> {
+            var claimedChunks = CLAIMED_CHUNKS.get(chunk.getPos().dimension());
+
+            if (claimedChunks != null) {
+                claimedChunks.remove(chunk.getPos().chunkPos().toLong());
+            }
         });
     }
 
