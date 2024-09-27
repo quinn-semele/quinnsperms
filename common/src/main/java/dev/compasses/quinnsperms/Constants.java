@@ -1,10 +1,10 @@
 package dev.compasses.quinnsperms;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import dev.ftb.mods.ftbteams.api.property.BooleanProperty;
+import net.minecraft.resources.ResourceLocation;
 
 public class Constants {
 	public static final String MOD_ID = "quinnsperms";
-	public static final String MOD_NAME = "Quinn's Perms";
-	public static final Logger LOG = LoggerFactory.getLogger(MOD_NAME);
+
+	public static BooleanProperty ALLOW_SEASONS_SNOW_ICE = new BooleanProperty(ResourceLocation.fromNamespaceAndPath("quinnsperms", "allow_seasons_snow_ice"), true);
 }
